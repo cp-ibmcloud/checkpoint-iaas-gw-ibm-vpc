@@ -65,8 +65,8 @@ variable "VNF_Profile" {
 }
 
 variable "CP_Version" {
-  default     = "R8040"
-  description = "The version of Check Point to deploy. R8040, R81"
+  default     = "R8110"
+  description = "The version of Check Point to deploy. R8110, R81, R8040, R8030"
 }
 
 variable "CP_Type" {
