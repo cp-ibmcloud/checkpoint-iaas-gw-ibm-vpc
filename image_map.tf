@@ -1,5 +1,28 @@
 locals { 
   image_map = {
+    R8120-Management = {
+      "us-south" = ""
+      "us-east"  = "r014-72042daf-b4b1-48aa-a0b0-12afd6945106"
+      "eu-gb"    = ""
+      "eu-de"    = ""
+      "jp-tok"   = ""
+      "jp-osa"   = ""
+      "au-syd"   = ""
+      "ca-tor"   = ""
+      "br-sao"   = ""
+    }
+
+    R8120-Gateway = {
+      "us-south" = ""
+      "us-east"  = "r014-8a348884-5675-4ed8-bff7-0e686335f08e"
+      "eu-gb"    = ""
+      "eu-de"    = ""
+      "jp-tok"   = ""
+      "jp-osa"   = ""
+      "au-syd"   = ""
+      "ca-tor"   = ""
+      "br-sao"   = ""
+    }
 
     R8110-Management = {
       "us-south" = "r006-36621bb0-a1dd-4392-8ece-12119ef1ad99"
