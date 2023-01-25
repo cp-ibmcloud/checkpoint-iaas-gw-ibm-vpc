@@ -14,7 +14,7 @@ locals {
 
     R8120-Gateway = {
       "us-south" = ""
-      "us-east"  = "r014-8a348884-5675-4ed8-bff7-0e686335f08e"
+      "us-east"  = "r014-09d53ba5-8eaf-49ed-85b1-2c06b3be6a3b"
       "eu-gb"    = ""
       "eu-de"    = ""
       "jp-tok"   = ""
