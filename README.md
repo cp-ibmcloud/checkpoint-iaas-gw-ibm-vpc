@@ -36,6 +36,7 @@ This template will deploy a new Check Point security gateway into an existing VP
 | us-east  | us-east-1, us-east-2, us-east-3 |
 | eu-gb    | eu-gb-1, eu-gb-2, eu-gb-3 |
 | eu-de    | eu-de-1, eu-de-2, eu-de-3 |
+| eu-es    | eu-es-1, eu-es-2, eu-es-3 |
 | jp-tok   | jp-tok-1, jp-tok-2, jp-tok-3 |
 | jq-osa   | jq-osa-1, jq-osa-2, jq-osa-3 |
 | au-syd   | au-syd-1, au-syd-2, au-syd-3 |
