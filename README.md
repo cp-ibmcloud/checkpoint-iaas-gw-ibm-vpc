@@ -17,7 +17,7 @@ If delpoying R81.20 image
 ## Check Point Resources
 - Check Point knowledgebase article for IBM Cloud VPC deployments [SK170400](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk170400&partition=Basic&product=Security).
 
-## Security and compliance controlsÂ 
+## Security and compliance controls 
 
 ## Required resources
 - VPC
