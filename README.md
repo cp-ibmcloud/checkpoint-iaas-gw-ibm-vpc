@@ -3,12 +3,23 @@
 # Check Point CloudGuard Security Gateway
 
 ## About
-This template will deploy a new Check Point security gateway into an existing VPC environment. The deployment will use three interfaces: Management, External, and Internal. See below for the prerequisites of this deployment type. Before logging into the web gui you must login via ssh key set the admin password by running, "set user admin password". 
+This template will deploy a new Check Point security gateway into an existing VPC environment. The deployment will use three interfaces: Management, External, and Internal. See below for the prerequisites of this deployment type. 
+
+## Before you begin
+If deploying R81.10 image
+  - Before logging into the web gui you must login via ssh key set the admin password by running, "set user admin password".
+  - Important Security Update - The below software images are vulnerable to CVE-2024-24919. See sk182336 to insatll JHF.
+If delpoying R81.20 image
+  - Images are deployed with with default admin password of admin
 
 ## Check Point Resources
 - Check Point knowledgebase article for IBM Cloud VPC deployments [SK170400](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk170400&partition=Basic&product=Security).
-- Check Point [Full Deployment Guide](https://supportcenter.checkpoint.com/supportcenter/portal?action=portlets.DCFileAction&eventSubmit_doGetdcdetails=&fileid=112069)
 
+## Installing the software
+- Check Point [Full Deployment Guide](https://supportcenter.checkpoint.com/supportcenter/portal?action=portlets.DCFileAction&eventSubmit_doGetdcdetails=&fileid=112069)
+- Check Point [R81.10 Gaia Administration Guide] (https://sc1.checkpoint.com/documents/R81.10/WebAdminGuides/EN/CP_R81.10_Gaia_AdminGuide/Topics-GAG/Getting_Started.htm?tocpath=_____6)
+- Check Point [R81.20 Documentation] (https://support.checkpoint.com/results/sk/sk173903)
+  
 ## Deployment Prerequisites 
 - VPC
 - Management Subnet
