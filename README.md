@@ -12,7 +12,7 @@ If deploying R81.10 image
 
 If delpoying R81.20 image
   - Images are deployed with with default admin password of admin
-    - set new passord by running, "set user admin password"
+    - Set new password by running, "set user admin password"
 
 ## Check Point Resources
 - Check Point knowledgebase article for IBM Cloud VPC deployments [SK170400](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk170400&partition=Basic&product=Security).
