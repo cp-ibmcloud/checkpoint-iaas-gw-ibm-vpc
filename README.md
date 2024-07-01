@@ -8,7 +8,7 @@ This template will deploy a new Check Point security gateway into an existing VP
 ## Before you begin
 If deploying R81.10 image
   - Before logging into the web gui you must login via ssh key set the admin password by running, "set user admin password".
-  - Important Security Update - The below software images are vulnerable to CVE-2024-24919. See sk182336 to insatll JHF.
+  - Important Security Update - The below software images are vulnerable to CVE-2024-24919. See sk182336 to install JHF.
 
 If delpoying R81.20 image
   - Images are deployed with with default admin password of admin
@@ -18,6 +18,8 @@ If delpoying R81.20 image
 - Check Point knowledgebase article for IBM Cloud VPC deployments [SK170400](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk170400&partition=Basic&product=Security).
 
 ## Security and compliance controls 
+ - R81.10 images require the installation of JFH referenced in sk182336
+ - R81.20 images have the latest JHF installed already
 
 ## Required resources
 - VPC
