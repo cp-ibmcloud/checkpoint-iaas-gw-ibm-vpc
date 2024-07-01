@@ -12,22 +12,35 @@ If deploying R81.10 image
 
 If delpoying R81.20 image
   - Images are deployed with with default admin password of admin
-    - Set new password by running, "set user admin password"
+    - set new password by running, "set user admin password"
 
 ## Check Point Resources
 - Check Point knowledgebase article for IBM Cloud VPC deployments [SK170400](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk170400&partition=Basic&product=Security).
 
-## Installing the software
-- Check Point [Full Deployment Guide](https://supportcenter.checkpoint.com/supportcenter/portal?action=portlets.DCFileAction&eventSubmit_doGetdcdetails=&fileid=112069)
-- Check Point [R81.10 Gaia Administration Guide](https://sc1.checkpoint.com/documents/R81.10/WebAdminGuides/EN/CP_R81.10_Gaia_AdminGuide/Topics-GAG/Getting_Started.htm?tocpath=_____6)
-- Check Point [R81.20 Documentation](https://support.checkpoint.com/results/sk/sk173903)
-  
-## Deployment Prerequisites 
+## Security and compliance controlsÂ 
+
+## Required resources
 - VPC
 - Management Subnet
 - External Subnet
 - Internal Subnet
 - SSH Key
+
+## Installing the software
+- Check Point [Full Deployment Guide](https://supportcenter.checkpoint.com/supportcenter/portal?action=portlets.DCFileAction&eventSubmit_doGetdcdetails=&fileid=112069)
+- Check Point [R81.10 Gaia Administration Guide](https://sc1.checkpoint.com/documents/R81.10/WebAdminGuides/EN/CP_R81.10_Gaia_AdminGuide/Topics-GAG/Getting_Started.htm?tocpath=_____6)
+- Check Point [R81.20 Documentation](https://support.checkpoint.com/results/sk/sk173903)
+
+## Upgrading to a new version
+- Refer to version admin  guides under insatalling software
+
+## Uninstalling the software
+
+1. Go to the **Menu** > **Schematics**.
+2. Select your workspace name. 
+3. Click **Actions** > **Destroy resources**. All resources in your workspace are deleted.
+4. Click **Update**.
+5. To delete your workspace, click **Actions** > **Delete workspace**.
 
 ## Deployment Parameters
 | Deploymenmt Parameter | Description |
