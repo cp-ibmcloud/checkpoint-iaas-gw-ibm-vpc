@@ -1,29 +1,31 @@
 locals { 
   image_map = {
-    R8120-Management = {
-      "us-south" = "r006-07447e14-ec37-4f2c-b2d0-d3b76f7ff6e1"
-      "us-east"  = "r014-760a0f45-2060-48eb-bd1f-83253368a9a9"
-      "eu-gb"    = "r018-979dbcbc-beba-44da-913a-4b61e15a6a46"
-      "eu-de"    = "r010-013aec90-5e6a-413b-ae36-569f2c8c9748"
-      "eu-es"    = "r050-f2af11cc-6440-4442-b5e8-676582e79406"
-      "jp-tok"   = "r022-70d0d532-f2ee-452e-8113-99e610934c8e"
-      "jp-osa"   = "r034-cd4e8d32-23e4-4508-9178-d61c64c53e8b"
-      "au-syd"   = "r026-c2f530ac-ce67-40cc-bc35-f88886fdd928"
-      "ca-tor"   = "r038-f5c33959-ee1f-4a5a-9c3b-cbbd638d0b6d"
-      "br-sao"   = "r042-e27a9418-da30-4c10-8dfb-4d350bf27899"
+   R8120-Management = {
+      "us-south" = "r006-ba12a2e6-f897-4db0-a379-d61af05f2e5f"
+      "us-east"  = "r014-897d2ef8-6e02-4d55-b3f1-f400d7aa9514"
+      "eu-gb"    = "r018-329e0e6f-4f47-4ca5-829e-74367256e381"
+      "eu-de"    = "r010-d4844969-3a35-4175-b085-a5435e7cda18"
+	  "eu-es"    = "r050-294d5ae7-ed58-4e0f-8ace-6650955161d1"
+      "jp-tok"   = "r022-c3a20c66-eb6d-4170-97d6-41846ee7ddf0"
+      "jp-osa"   = "r034-a89b35ad-0fd1-407e-8d10-b5e359cba38d"
+      "au-syd"   = "r026-1065b7f0-93a3-4d79-9907-f6417d45aa48"
+      "ca-tor"   = "r038-bc57bb6c-b8a5-486e-8c21-359675fa22a6"
+      "br-sao"   = "r042-2967c5aa-7622-4757-862e-426524fef90f"
     }
 
     R8120-Gateway = {
-      "us-south" = "r006-f2e28698-f220-4aeb-a32d-2906d3d29167"
-      "us-east"  = "r014-abd1781f-918c-4749-b65d-bbc7140651aa"
-      "eu-gb"    = "r018-b46c6b42-6c89-42e0-8bf4-7f93d145360a"
-      "eu-de"    = "r010-e7aeae9b-ed9d-4959-a7e7-f2e6e9f72214"
-      "eu-es"    = "r050-9a463269-f826-40ed-a521-f6d80e23480c"
-      "jp-tok"   = "r022-771ba1c7-a59f-4d24-8426-d77ea3943692"
-      "jp-osa"   = "r034-aa2861d7-73a0-4078-91d4-1d384e165e90"
-      "au-syd"   = "r026-311460ff-b56e-45b5-9b61-a02827b64301"
-      "ca-tor"   = "r038-8fb702f0-967e-41d8-b990-9bc98f380508"
-      "br-sao"   = "r042-cbb2fd38-2a80-46d7-aaa7-89493176027b"
+      "us-south" = "r006-33f35d30-b5a9-4d13-b770-39ef2fc1c665"
+	  "us-east"  = "r014-1cac7a47-a902-4b12-bc4b-2ae8e2af1673"
+      "eu-gb"    = "r018-769376eb-6bdf-4e3e-b6f5-11eb4ea54941"
+      "eu-de"      "r010-43730e24-58f9-4878-b350-136c3e298985"
+	  "eu-es"    = "r050-f893bf42-e9c6-4b3c-8007-e5700925fd96"
+	  "jp-tok"   = "r022-6892d611-ab7a-4954-af04-5f899c0138de"
+      "jp-osa"   = "r034-356f570b-b5f2-4e2d-b206-8a57835ac038"
+      "au-syd"   = "r026-2a7047ea-8885-45af-a6ed-816a933ca842"
+      "ca-tor"   = "r038-46e80e0c-4941-4a73-ade6-574272cf9fd5"
+      "br-sao"   = "r042-50c06aa2-af36-4535-a91b-4082512ac9dd"
+	  
+ 
     }
 
     R8110-Management = {
