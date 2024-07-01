@@ -17,8 +17,8 @@ If delpoying R81.20 image
 
 ## Installing the software
 - Check Point [Full Deployment Guide](https://supportcenter.checkpoint.com/supportcenter/portal?action=portlets.DCFileAction&eventSubmit_doGetdcdetails=&fileid=112069)
-- Check Point [R81.10 Gaia Administration Guide] (https://sc1.checkpoint.com/documents/R81.10/WebAdminGuides/EN/CP_R81.10_Gaia_AdminGuide/Topics-GAG/Getting_Started.htm?tocpath=_____6)
-- Check Point [R81.20 Documentation] (https://support.checkpoint.com/results/sk/sk173903)
+- Check Point [R81.10 Gaia Administration Guide](https://sc1.checkpoint.com/documents/R81.10/WebAdminGuides/EN/CP_R81.10_Gaia_AdminGuide/Topics-GAG/Getting_Started.htm?tocpath=_____6)
+- Check Point [R81.20 Documentation](https://support.checkpoint.com/results/sk/sk173903)
   
 ## Deployment Prerequisites 
 - VPC
