@@ -182,7 +182,7 @@ resource "ibm_is_security_group_rule" "allow_ingress_all" {
 ##############################################################################
 
 # VNI for Interface Management
-resource "ibm_is_virtual_network_interface" "rip_vnic_vsi_gw1" {
+resource "ibm_is_virtual_network_interface" "rip_vnic_vsi_gw" {
   #allow_ip_spoofing         = false
   auto_delete               = false
   enable_infrastructure_nat = true
@@ -237,7 +237,7 @@ resource "ibm_is_instance" "cp_gw_vsi" {
   primary_network_attachment {
     name = "management"
       virtual_network_interface {
-        id = ibm_is_virtual_network_interface.rip_vnic_vsi_gw1.id
+        id = ibm_is_virtual_network_interface.rip_vnic_vsi_gw.id
         #id = data.ibm_is_virtual_network_interfaces.vni_list.virtual_network_interfaces.id[1]
       }
   }
