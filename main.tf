@@ -99,6 +99,22 @@ variable "TF_VERSION" {
  description = "terraform engine version to be used in schematics"
 }
 
+# Variables for VNIs
+variable "vni_mgmt_interface_name" {
+  default     = "management-interface"
+  description = "Name of interface VNI management."
+}
+
+variable "vni_ext_interface_name" {
+  default     = "external-interface"
+  description = "Name of interface VNI external."
+}
+
+variable "vni_int_interface_name" {
+  default     = "internal-interface"
+  description = "Name of interface VNI internal."
+}
+
 ##############################################################################
 # Data block 
 ##############################################################################
@@ -162,6 +178,45 @@ resource "ibm_is_security_group_rule" "allow_ingress_all" {
 }
 
 ##############################################################################
+# Create Virtual Network Interfaces (VNIs)
+##############################################################################
+
+# VNI for Interface Management
+resource "ibm_is_virtual_network_interface" "rip_vnic_vsi_gw1" {
+  #allow_ip_spoofing         = false
+  auto_delete               = false
+  enable_infrastructure_nat = true
+  name                      = var.vni_mgmt_interface_name
+  subnet                    = data.ibm_is_subnet.management_subnet.id
+  security_groups           = [ibm_is_security_group.ckp_security_group.id]
+  resource_group            = data.ibm_resource_group.rg.id
+}
+
+# VNI for Interface External
+resource "ibm_is_virtual_network_interface" "rip_vnic_ext_vsi_gw" {
+  #allow_ip_spoofing         = true
+  auto_delete               = false
+  enable_infrastructure_nat = true
+  name                      = var.vni_ext_interface_name
+  subnet                    = data.ibm_is_subnet.external_subnet.id
+  security_groups           = [ibm_is_security_group.ckp_security_group.id]
+  resource_group            = data.ibm_resource_group.rg.id
+}
+
+# VNI for Interface Internal
+resource "ibm_is_virtual_network_interface" "rip_vnic_int_vsi_gw" {
+  #allow_ip_spoofing         = true
+  auto_delete               = false
+  enable_infrastructure_nat = true
+  name                      = var.vni_int_interface_name
+  subnet                    = data.ibm_is_subnet.internal_subnet.id
+  security_groups           = [ibm_is_security_group.ckp_security_group.id]
+  resource_group            = data.ibm_resource_group.rg.id
+}
+
+
+
+##############################################################################
 # Create Check Point Gateway
 ##############################################################################
 
@@ -177,30 +232,32 @@ resource "ibm_is_instance" "cp_gw_vsi" {
   profile        = data.ibm_is_instance_profile.vnf_profile.name
   resource_group = data.ibm_resource_group.rg.id
 
-  #eth0 - Management Interface
-  primary_network_interface {
-    name            = "eth0"
-    subnet          = data.ibm_is_subnet.cp_subnet0.id
-    security_groups = [ibm_is_security_group.ckp_security_group.id]
-    allow_ip_spoofing = true
+ 
+ # Attach VNI's to VSI   
+  primary_network_attachment {
+    name = "management"
+      virtual_network_interface {
+        id = ibm_is_virtual_network_interface.rip_vnic_vsi_gw1.id
+        #id = data.ibm_is_virtual_network_interfaces.vni_list.virtual_network_interfaces.id[1]
+      }
   }
-
-  #eth1 - External Interface
-  network_interfaces {
-    name            = "eth1"
-    subnet          = data.ibm_is_subnet.cp_subnet1.id
-    security_groups = [ibm_is_security_group.ckp_security_group.id]
-    allow_ip_spoofing = true
+  
+  resource "ibm_is_instance_network_attachment" "attach_vnic_ext_gw" {
+  instance             = ibm_is_instance.cp_gw_vsi.id
+  virtual_network_interface {
+    id = ibm_is_virtual_network_interface.rip_vnic_ext_vsi_gw.id
   }
+  name                 = "external"
+}
 
-  #eth2 - Internal Interface
-  network_interfaces {
-    name            = "eth2"
-    subnet          = data.ibm_is_subnet.cp_subnet2.id
-    security_groups = [ibm_is_security_group.ckp_security_group.id]
-    allow_ip_spoofing = true
+  resource "ibm_is_instance_network_attachment" "attach_vnic_int_gw" {
+  instance             = ibm_is_instance.cp_gw_vsi.id
+  virtual_network_interface {
+    id = ibm_is_virtual_network_interface.rip_vnic_int_vsi_gw.id
   }
-
+  name                 = "internal"
+}
+  
   vpc  = data.ibm_is_vpc.cp_vpc.id
   zone = data.ibm_is_subnet.cp_subnet0.zone
   keys = [data.ibm_is_ssh_key.cp_ssh_pub_key.id]
