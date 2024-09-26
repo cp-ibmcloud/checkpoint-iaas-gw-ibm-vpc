@@ -185,7 +185,7 @@ resource "ibm_is_virtual_network_interface" "is_virtual_network_interface_instan
   auto_delete = false
   enable_infrastructure_nat = true
   name = "my-virtual-network-interface"
-  subnet = "7ec86020-1c6e-4889-b3f0-a15f2e50f87e"
+  subnet = "0767-c8817e9f-08f0-4f1c-9c02-4dae56229094"
 }
 
 # VNI for Interface Management
