@@ -95,7 +95,7 @@ variable "ibmcloud_api_key" {
 }
 
 variable "TF_VERSION" {
- default = "0.12"
+ default = "1.0"
  description = "terraform engine version to be used in schematics"
 }
 
