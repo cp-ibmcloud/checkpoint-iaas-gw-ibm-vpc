@@ -180,13 +180,6 @@ resource "ibm_is_security_group_rule" "allow_ingress_all" {
 ##############################################################################
 # Create Virtual Network Interfaces (VNIs)
 ##############################################################################
-resource "ibm_is_virtual_network_interface" "is_virtual_network_interface_instance" {
-  allow_ip_spoofing = true
-  auto_delete = false
-  enable_infrastructure_nat = true
-  name = "my-virtual-network-interface"
-  subnet = "0767-c8817e9f-08f0-4f1c-9c02-4dae56229094"
-}
 
 # VNI for Interface Management
 resource "ibm_is_virtual_network_interface" "rip_vnic_vsi_gw" {
