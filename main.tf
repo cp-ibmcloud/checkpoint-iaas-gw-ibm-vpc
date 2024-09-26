@@ -187,7 +187,7 @@ resource "ibm_is_virtual_network_interface" "rip_vnic_vsi_gw" {
   auto_delete               = false
   enable_infrastructure_nat = true
   name                      = var.vni_mgmt_interface_name
-  subnet                    = data.ibm_is_subnet.management_subnet.id
+  subnet                    = data.ibm_is_subnet.cp_subnet0.id
   security_groups           = [ibm_is_security_group.ckp_security_group.id]
   resource_group            = data.ibm_resource_group.rg.id
 }
@@ -198,7 +198,7 @@ resource "ibm_is_virtual_network_interface" "rip_vnic_ext_vsi_gw" {
   auto_delete               = false
   enable_infrastructure_nat = true
   name                      = var.vni_ext_interface_name
-  subnet                    = data.ibm_is_subnet.external_subnet.id
+  subnet                    = data.ibm_is_subnet.cp_subnet1.id
   security_groups           = [ibm_is_security_group.ckp_security_group.id]
   resource_group            = data.ibm_resource_group.rg.id
 }
@@ -209,7 +209,7 @@ resource "ibm_is_virtual_network_interface" "rip_vnic_int_vsi_gw" {
   auto_delete               = false
   enable_infrastructure_nat = true
   name                      = var.vni_int_interface_name
-  subnet                    = data.ibm_is_subnet.internal_subnet.id
+  subnet                    = data.ibm_is_subnet.cp_subnet2.id
   security_groups           = [ibm_is_security_group.ckp_security_group.id]
   resource_group            = data.ibm_resource_group.rg.id
 }
