@@ -254,7 +254,7 @@ resource "ibm_is_instance" "cp_gw_vsi" {
   }
 
    provisioner "local-exec" {
-    command = "sleep 90"
+    command = "sleep 240"
   }
 }
   
