@@ -241,7 +241,10 @@ resource "ibm_is_instance" "cp_gw_vsi" {
         #id = data.ibm_is_virtual_network_interfaces.vni_list.virtual_network_interfaces.id[1]
       }
   }
-  
+   vpc  = data.ibm_is_vpc.cp_vpc.id
+  zone = data.ibm_is_subnet.cp_subnet0.zone
+  keys = [data.ibm_is_ssh_key.cp_ssh_pub_key.id]
+
   resource "ibm_is_instance_network_attachment" "attach_vnic_ext_gw" {
   instance             = ibm_is_instance.cp_gw_vsi.id
   virtual_network_interface {
@@ -258,10 +261,6 @@ resource "ibm_is_instance" "cp_gw_vsi" {
   name                 = "internal"
 }
   
-  vpc  = data.ibm_is_vpc.cp_vpc.id
-  zone = data.ibm_is_subnet.cp_subnet0.zone
-  keys = [data.ibm_is_ssh_key.cp_ssh_pub_key.id]
-
   #Custom UserData
   user_data = file("user_data")
 
