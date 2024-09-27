@@ -244,7 +244,14 @@ resource "ibm_is_instance" "cp_gw_vsi" {
         #id = data.ibm_is_virtual_network_interfaces.vni_list.virtual_network_interfaces.id[1]
       }
   }
- 
+
+  #Custom UserData
+  user_data = file("user_data")
+
+  timeouts {
+    create = "15m"
+    delete = "15m"
+  }
 
   resource "ibm_is_instance_network_attachment" "attach_vnic_ext_gw" {
   instance             = ibm_is_instance.cp_gw_vsi.id
@@ -262,15 +269,7 @@ resource "ibm_is_instance" "cp_gw_vsi" {
   name                 = "internal"
 }
   
-  #Custom UserData
-  user_data = file("user_data")
-
-  timeouts {
-    create = "15m"
-    delete = "15m"
-  }
-
-  provisioner "local-exec" {
+   provisioner "local-exec" {
     command = "sleep 30"
   }
 }
