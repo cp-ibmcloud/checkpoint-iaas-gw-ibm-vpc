@@ -253,29 +253,29 @@ resource "ibm_is_instance" "cp_gw_vsi" {
     delete = "15m"
   }
 
-   provisioner "local-exec" {
-    command = "sleep 240"
-  }
-}
-  
-# moved below to try and attach interfaces after instance is up
-
   resource "ibm_is_instance_network_attachment" "attach_vnic_ext_gw" {
   instance = ibm_is_instance.cp_gw_vsi.id
   virtual_network_interface {
     id = ibm_is_virtual_network_interface.rip_vnic_ext_vsi_gw.id
   }
   name                 = "external"
+}
+
+   provisioner "local-exec" {
+    command = "sleep 240"
+  }
+
+  # moved below to try and attach interfaces after instance is up
 
 #   provisioner "local-exec" {
  #   command = "sleep 30"
   #}
 }
 
-#  resource "ibm_is_instance_network_attachment" "attach_vnic_int_gw" {
- # instance = ibm_is_instance.cp_gw_vsi.id
-  #virtual_network_interface {
-   # id = ibm_is_virtual_network_interface.rip_vnic_int_vsi_gw.id
-  #}
-  #name                 = "internal"
-#}
+  resource "ibm_is_instance_network_attachment" "attach_vnic_int_gw" {
+  instance = ibm_is_instance.cp_gw_vsi.id
+  virtual_network_interface {
+    id = ibm_is_virtual_network_interface.rip_vnic_int_vsi_gw.id
+  }
+  name                 = "internal"
+}
