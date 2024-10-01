@@ -267,15 +267,15 @@ resource "ibm_is_instance" "cp_gw_vsi" {
   }
   name                 = "external"
 
-   provisioner "local-exec" {
-    command = "sleep 30"
-  }
+#   provisioner "local-exec" {
+ #   command = "sleep 30"
+  #}
 }
 
-  resource "ibm_is_instance_network_attachment" "attach_vnic_int_gw" {
-  instance = ibm_is_instance.cp_gw_vsi.id
-  virtual_network_interface {
-    id = ibm_is_virtual_network_interface.rip_vnic_int_vsi_gw.id
-  }
-  name                 = "internal"
-}
+#  resource "ibm_is_instance_network_attachment" "attach_vnic_int_gw" {
+ # instance = ibm_is_instance.cp_gw_vsi.id
+  #virtual_network_interface {
+   # id = ibm_is_virtual_network_interface.rip_vnic_int_vsi_gw.id
+  #}
+  #name                 = "internal"
+#}
