@@ -99,6 +99,23 @@ variable "TF_VERSION" {
  description = "terraform engine version to be used in schematics"
 }
 
+
+# Variables for VNIs
+variable "vni_mgmt_interface_name" {
+  default     = "management-interface"
+  description = "Name of interface VNI management."
+}
+
+variable "vni_ext_interface_name" {
+  default     = "external-interface"
+  description = "Name of interface VNI external."
+}
+
+variable "vni_int_interface_name" {
+  default     = "internal-interface"
+  description = "Name of interface VNI internal."
+}
+
 ##############################################################################
 # Data block 
 ##############################################################################
@@ -221,7 +238,7 @@ resource "ibm_is_instance" "cp_gw_vsi" {
   
  # Attach VNI's to VSI   
   primary_network_attachment {
-    name = "eth0"
+    name = var.vni_mgmt_interface_name
       virtual_network_interface {
         id = ibm_is_virtual_network_interface.rip_vnic_vsi_gw.id
         #id = data.ibm_is_virtual_network_interfaces.vni_list.virtual_network_interfaces.id[1]
@@ -229,18 +246,19 @@ resource "ibm_is_instance" "cp_gw_vsi" {
   }
 
 network_attachments {
-    name = "eth1"
+    name = var.vni_ext_interface_name
     virtual_network_interface {
       id = ibm_is_virtual_network_interface.rip_vnic_ext_vsi_gw.id
             }
   }
 
 network_attachments {
-    name = "eth2"
+    name = var.vni_int_interface_name
     virtual_network_interface {
       id = ibm_is_virtual_network_interface.rip_vnic_int_vsi_gw.id
             }
   }
+  
 
   #Custom UserData
   user_data = file("user_data")
