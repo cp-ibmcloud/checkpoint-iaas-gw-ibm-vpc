@@ -56,6 +56,9 @@ If delpoying R81.20 image
 | CP_Version | Version of Check Point CloudGuard to Deploy |
 | SSH_Key       | The pubic SSH Key that will be used when provisioning the Check Point  VSI. To list the available SSH keys, run  the following command: ```ibmcloud is keys``` |
 | VNF_Security_Group | Enter a unique name for the security-group to be applied to Check Point interfaces, run the following command to show existing security groups: ```ibmcloud is security-groups```  |
+| vni_mgmt_interface_name | Enter a name for the virtual network interface to be assigned to Management_Subnet | 
+| vni_ext_interface_name | Enter a name for the virtual network interface to be assigned to External_Subnet |
+| vni_int_interface_name | Enter a name for the virtual network interface to be assigned to Internal_Subnet |
 
 ## IBM Cloud Regions and Zones
 | Region | Zones |
