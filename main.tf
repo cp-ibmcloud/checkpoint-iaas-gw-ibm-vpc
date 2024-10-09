@@ -184,7 +184,7 @@ resource "ibm_is_security_group_rule" "allow_ingress_all" {
 
 # VNI for Interface Management
 resource "ibm_is_virtual_network_interface" "rip_vnic_vsi_gw" {
-  #allow_ip_spoofing         = false
+  allow_ip_spoofing         = true
   auto_delete               = false
   enable_infrastructure_nat = true
   name                      = var.vni_mgmt_interface_name
@@ -195,7 +195,7 @@ resource "ibm_is_virtual_network_interface" "rip_vnic_vsi_gw" {
 
 # VNI for Interface External
 resource "ibm_is_virtual_network_interface" "rip_vnic_ext_vsi_gw" {
-  #allow_ip_spoofing         = true
+  allow_ip_spoofing         = true
   auto_delete               = false
   enable_infrastructure_nat = true
   name                      = var.vni_ext_interface_name
@@ -206,7 +206,7 @@ resource "ibm_is_virtual_network_interface" "rip_vnic_ext_vsi_gw" {
 
 # VNI for Interface Internal
 resource "ibm_is_virtual_network_interface" "rip_vnic_int_vsi_gw" {
-  #allow_ip_spoofing         = true
+  allow_ip_spoofing         = true
   auto_delete               = false
   enable_infrastructure_nat = true
   name                      = var.vni_int_interface_name
